@@ -1,11 +1,11 @@
 import React from 'react'
-import {FaShoppingCart} from 'react-icons/fa'
+import { FaShoppingCart } from 'react-icons/fa'
 
 export const CartWidget = () => {
 
     return (
-        <div >
-         <a><FaShoppingCart className="widget"/>Carrito</a>
+        <div>
+            <FaShoppingCart className="widget" />Carrito
         </div>
     )
 }

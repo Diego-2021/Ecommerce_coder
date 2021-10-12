@@ -23,14 +23,7 @@ export const ItemListContainer = () => {
 
     }, [])
 
-    // useEffect(async ()=> {
-    //    // mock llamado a la API
-    //     const res = await pedirProductos()
-    //     console.log(res)
-    // }, [])
-
-
-    return (
+      return (
         <section className="container my-5">
             {
                 loading 
@@ -43,4 +36,3 @@ export const ItemListContainer = () => {
 }
 
 
-// export default HomeView

@@ -6,17 +6,18 @@ export const stock = [
         description: "Lorem ipsum",
         price: 8500,
         img: "https://via.placeholder.com/220"
+                
     },
     {
         id: 2,
-        name: "Producto 2",
+        name: "Taladro",
         description: "Lorem ipsum",
         price: 2500,
         img: "https://via.placeholder.com/220"
     },
     {
         id: 3,
-        name: "Producto 3",
+        name: "Sierra de mesa para madera",
         description: "Lorem ipsum",
         price: 800,
         img: "https://via.placeholder.com/220"
