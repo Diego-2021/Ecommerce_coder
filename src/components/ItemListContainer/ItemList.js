@@ -6,6 +6,7 @@ export const ItemList = ({ productos = [] }) => {
 
     return (
         <div className="container">
+            
             <h2>Herramientas</h2>
             <hr />
 

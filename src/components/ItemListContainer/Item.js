@@ -1,8 +1,11 @@
 import React from 'react'
 import {Card, Button} from 'react-bootstrap'
-export const Item = ( {id, name, price, img, description} ) => {
+import {Link} from 'react-router-dom'
 
-    // console.log(props)
+
+export const Item = ( {id, name, price, img, description, category} ) => {
+
+    // visualizar props console.log(props)
 
     return (
 
@@ -12,8 +15,11 @@ export const Item = ( {id, name, price, img, description} ) => {
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
                 <Card.Text>Precio: ${price}</Card.Text>
+                <Card.Text>Categoria: {category}</Card.Text>
 
-                <Button variant="primary">Lo quiero</Button>
+                <Link to={`/detail/${id}`}>
+                    <Button variant="primary">Lo quiero</Button>
+                </Link>
             </Card.Body>
         </Card>
     )

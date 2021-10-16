@@ -5,7 +5,7 @@ export const CartWidget = () => {
 
     return (
         <div>
-            <FaShoppingCart className="widget" />Carrito
+            <FaShoppingCart className="widget" />
         </div>
     )
 }

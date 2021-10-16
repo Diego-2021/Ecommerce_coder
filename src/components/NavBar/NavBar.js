@@ -1,30 +1,20 @@
-import { Nav, NavDropdown, } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { CartWidget } from './CartWidget';
-import './NavBar.css'
+import { Link, NavLink } from 'react-router-dom'
+import './NavBar.scss'
 
 
 
 export const NavBar = () => {
     return <>
         <Nav className=" header">
-            <Nav.Item>
-                <Nav.Link href="">Distrimax
-                </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link href="">Productos</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link href="">Contactos</Nav.Link>
-            </Nav.Item>
-            <NavDropdown title="Herramientas" id="nav-dropdown">
-                <NavDropdown.Item >De Mesa</NavDropdown.Item>
-                <NavDropdown.Item >De Mano</NavDropdown.Item>
-                <NavDropdown.Item >Otras</NavDropdown.Item>
-                </NavDropdown>
-                <Nav.Item  className ="widget">
-                <CartWidget/> 
-               </Nav.Item>
+
+            <NavLink activeClassName={'activeLink'} exact to="/">Distrimax</NavLink>
+            <NavLink activeClassName={'activeLink'} exact to="/productos/Sierras">Sierras</NavLink>
+            <NavLink activeClassName={'activeLink'} exact to="/productos/Taladros">Taladros</NavLink>
+            <NavLink activeClassName={'activeLink'} exact to="/contacto">Contactos</NavLink>
+            <Link className="widget" to="/cart"><CartWidget /></Link>
         </Nav>
     </>
+
 }
