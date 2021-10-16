@@ -2,29 +2,35 @@ import React from 'react'
 import { useHistory } from 'react-router'
 
 
-export const ItemDetail = ({ id, name, price, img, description, category} ) => {
+export const ItemDetail = ({ id, name, price, img, description, category }) => {
 
-    const {goBack, push} = useHistory()
+    const { goBack, push } = useHistory()
 
     return (
-        <div>
+
+        <div style={{ width: '18rem' }} className="m-3">
+            <button
+                className="btn btn-primary m-3 border="
+                onClick={() => push("/")}>Inicio
+            </button>
+
             <h2>{name}</h2>
-            <img src={img} alt={name}/>
+            <img src={img} alt={name} />
             <p>{description}</p>
             <h4>Precio: ${price}</h4>
             <h4>Categoria:{category}</h4>
             {/* Montar el boton de compra con opciones de cantidades*/}
 
-            <button 
-                className="btn btn-primary"
-                onClick={() => goBack()}
-            >
-                Volver
+            <button
+                className="btn btn-warning m-3"
+                onClick={() => goBack()}>Volver
+            </button>
+            <button
+                className="btn btn-warning m-3"
+                onClick={() =>push("/cart")}>Comprar
             </button>
 
-            <button onClick={() => push("/")}>
-                Inicio
-            </button>
+
         </div>
     )
 }
