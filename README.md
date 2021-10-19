@@ -1,4 +1,4 @@
-## Para Ejecutar la aplicación en modo de desarrollo, inicie con Npm install y luego Npm Start
+## Para Ejecutar la aplicación en modo de desarrollo, inicie con npm install y luego npm start
 
 Proyecto E-Commerce en react 
 Este proyecto simula un ecommerce de una tienda de herramientas. 
