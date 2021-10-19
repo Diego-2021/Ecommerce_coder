@@ -2,11 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(144, 221, 147);
+    background-color: rgba(208, 210, 214, 0.652);
     padding: 15px 5%;
     font-size: 30px;
+    
+
     a {
-        color: rgb(66, 121, 192);
+        color: rgb(12, 67, 150);
         font-weight: 700;
         font-size: 22px;
         text-decoration: none;
@@ -16,8 +18,13 @@
     
 
         .widget {
-            color: white;
+            color: rgb(105, 150, 218) solid;
             font-size: 30px;
+        }
+
+        .activeLink {
+            border: 2px rgb(20, 88, 191) solid;
+            border-radius: 5px;
         }
     }
 

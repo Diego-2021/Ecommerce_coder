@@ -1,3 +1,4 @@
+import React from 'react'
 import { Nav } from 'react-bootstrap';
 import { CartWidget } from './CartWidget';
 import { Link, NavLink } from 'react-router-dom'
