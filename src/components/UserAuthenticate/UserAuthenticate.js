@@ -16,7 +16,7 @@ export const UserAuthenticate = () => {
             <hr/>
 
             <div className="row">
-                <button onClick={handlesubmit}> Login </button>
+                <button className="btn btn-danger, my-3" onClick={handlesubmit}> Login </button>
             </div>
         </div>
     </>

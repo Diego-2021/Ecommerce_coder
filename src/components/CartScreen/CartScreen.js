@@ -15,7 +15,7 @@ export const CartScreen = () => {
                 carrito.length === 0
                 ? <>
                     <h2>No hay productos agregados</h2>
-                    <Link to="/" className="btn btn-success">Comprar</Link>
+                    <Link to="/" className="btn btn-warning">Comprar</Link>
                  </>
                 :
                     <>

@@ -20,17 +20,13 @@ export const ItemCount = ( {cantidad, modify, max} ) => {
             <button
                 onClick={handleRestar}
                 className="btn btn-primary"
-            >
-                -
+            > -
             </button>
-
-            <span className="mx-3">{cantidad}</span>
-
+            <span className="mx-2">{cantidad}</span>
             <button
                 onClick={handleSumar}
                 className="btn btn-primary"
-            >
-                +
+            > +
             </button>
         </div>
     )

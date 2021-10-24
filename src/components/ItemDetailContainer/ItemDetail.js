@@ -35,15 +35,14 @@ export const ItemDetail = ({ id, name, price, img, description, category, stock}
             <img src={img} alt={name}/>
             <p>{description}</p>
             <h4>Precio: ${price}</h4>
-            {/* opción de compra / contador */}
-
+            
             { isInCart(id) 
-                ? <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+                ? <Link to="/cart" className="btn btn-warning">Terminar mi compra</Link>
                 :
                     <>
                         <ItemCount cantidad={cantidad} modify={setCantidad} max={stock}/>
                         <button
-                            className="btn btn-success my-2"
+                            className="btn btn-danger my-2"
                             onClick={handleAgregar}
                             >
                             Agregar

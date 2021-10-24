@@ -29,8 +29,7 @@ function App() {
           <BrowserRouter>
             {/*navbar lo dejamos afuera del swich para que quede estatico cuando nos movemos*/}
             <NavBar />
-
-            <Switch>
+          <Switch>
             { isAuthenticated 
               ?
               <>
