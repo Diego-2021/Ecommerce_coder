@@ -4,8 +4,6 @@ import { CartWidget } from './CartWidget';
 import { Link, NavLink } from 'react-router-dom'
 import './NavBar.scss'
 
-
-
 export const NavBar = () => {
     return(
     <header className="header">

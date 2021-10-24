@@ -1,36 +1,70 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
+import { ItemCount } from '../ItemCount/ItemCount'
 
 
-export const ItemDetail = ({ id, name, price, img, description, category }) => {
 
-    const { goBack, push } = useHistory()
+
+export const ItemDetail = ({ id, name, price, img, description, category, stock} ) => {
+
+    const {goBack, push} = useHistory()
+
+    const {addToCart, isInCart} = useContext(CartContext)
+
+    const [cantidad, setCantidad] = useState(0)
+
+    const handleAgregar = () => {
+        const newItem = {
+            id,
+            name,
+            price,
+            category,
+            cantidad
+        }
+
+        if (cantidad > 0) {
+            addToCart(newItem)
+        }
+    }
 
     return (
-
-        <div style={{ width: '18rem' }} className="m-3">
-            <button
-                className="btn btn-primary m-3 border="
-                onClick={() => push("/")}>Inicio
-            </button>
-
+        <div className="container">
             <h2>{name}</h2>
-            <img src={img} alt={name} />
+            <img src={img} alt={name}/>
             <p>{description}</p>
             <h4>Precio: ${price}</h4>
-            <h4>Categoria:{category}</h4>
-            {/* Montar el boton de compra con opciones de cantidades*/}
+            {/* opción de compra / contador */}
 
-            <button
-                className="btn btn-warning m-3"
-                onClick={() => goBack()}>Volver
+            { isInCart(id) 
+                ? <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+                :
+                    <>
+                        <ItemCount cantidad={cantidad} modify={setCantidad} max={stock}/>
+                        <button
+                            className="btn btn-success my-2"
+                            onClick={handleAgregar}
+                            >
+                            Agregar
+                        </button>
+                    </>
+            }
+
+            <hr/>
+            <button 
+                className="btn btn-primary"
+                onClick={() => goBack()}
+            >
+                Volver
             </button>
-            <button
-                className="btn btn-warning m-3"
-                onClick={() =>push("/cart")}>Comprar
+
+            <button 
+                className="btn btn-outline-primary mx-4"
+                onClick={() => push("/")}
+            >
+                Volver al inicio
             </button>
-
-
         </div>
     )
 }
