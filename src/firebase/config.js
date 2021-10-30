@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC0XCuOxO24s_zqIS6CojBxMwnuc6F6d1c",
   authDomain: "ecomercecoder.firebaseapp.com",
@@ -12,7 +13,10 @@ const firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig)
 
+
 export const getFirestore = () => {
     return firebase.firestore(app)
 }
+
+export const db = getFirestore()
 

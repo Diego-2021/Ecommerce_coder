@@ -10,9 +10,9 @@ export const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(false)
-    const {itemId} = useParams()
+    const { itemId } = useParams()
 
-    useEffect(()=>{
+    useEffect(() => {
         setLoading(true)
 
         const db = getFirestore()
@@ -26,7 +26,7 @@ export const ItemDetailContainer = () => {
                     ...doc.data()
                 })
             })
-            .catch( err => console.log(err))
+            .catch(err => console.log(err))
             .finally(() => {
                 setLoading(false)
             })
@@ -36,9 +36,9 @@ export const ItemDetailContainer = () => {
     return (
         <div>
             {
-                loading 
-                ? <Loader/>
-                : <ItemDetail {...item}/>
+                loading
+                    ? <Loader />
+                    : <ItemDetail {...item} />
             }
         </div>
     )
