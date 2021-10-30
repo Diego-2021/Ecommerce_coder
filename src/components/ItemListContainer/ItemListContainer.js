@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { pedirProductos } from '../../helpers/pedirProductos'
+import { UIContext } from '../../context/UIContext'
+import { getFirestore } from '../../firebase/config'
+import { Loader } from '../Loader/Loader'
 import { ItemList } from './ItemList'
 
 export const ItemListContainer = () => {
@@ -9,35 +11,39 @@ export const ItemListContainer = () => {
     const [loading, setLoading] = useState(false)
 
 
-    const {categoryId} = useParams()
+    const { categoryId } = useParams()
 
-    useEffect(()=>{
+    useEffect(() => {
         setLoading(true)
 
-        pedirProductos()
-            .then((res) => {
+        const db = getFirestore()
+        const productos = categoryId 
+                            ? db.collection('productos').where('category', '==', categoryId)
+                            : db.collection('productos')
 
-                if (categoryId) {
-                    setItems( res.filter( prod => prod.category === categoryId) )
-                } else {
-                    setItems( res )
-                }
-            })
-            .catch((err) => console.log(err))
-            .finally(() => {
-                setLoading(false)
-            })
+                            productos.get()
+                            .then((response) => {
+                                const newItems = response.docs.map((doc) => {
+                                    return {id: doc.id, ...doc.data()}
+                                })
+                
+                                setItems(newItems)
+                            })
+                            .catch( err => console.log(err))
+                            .finally(() => {
+                                setLoading(false)}
+                            )
+                        
+                    }, [categoryId, setLoading])
 
-    }, [categoryId])
-
-     return (
+    return (
         <section className="container my-5">
             {
-                loading 
+                loading
                     ? <h2>Cargando...</h2>
-                    : <ItemList productos={items}/>
+                    : <ItemList productos={items} />
             }
-            
+
         </section>
     )
 }
