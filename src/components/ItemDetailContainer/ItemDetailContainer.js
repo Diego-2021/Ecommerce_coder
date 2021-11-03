@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { Loader } from '../Loader/Loader'
+import { UIContext } from '../../context/UIContext'
 import { getFirestore } from '../../firebase/config'
+import { Loader } from '../Loader/Loader'
 import { ItemDetail } from './ItemDetail'
-
-
 
 export const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
-    const [loading, setLoading] = useState(false)
-    const { itemId } = useParams()
+    
+    const {loading, setLoading} = useContext(UIContext)
 
-    useEffect(() => {
+    const {itemId} = useParams()
+
+    useEffect(()=>{
         setLoading(true)
 
         const db = getFirestore()
@@ -26,7 +27,7 @@ export const ItemDetailContainer = () => {
                     ...doc.data()
                 })
             })
-            .catch(err => console.log(err))
+            .catch( err => console.log(err))
             .finally(() => {
                 setLoading(false)
             })
@@ -35,11 +36,11 @@ export const ItemDetailContainer = () => {
 
     return (
         <div>
-            {
-                loading
-                    ? <Loader />
-                    : <ItemDetail {...item} />
+            { loading 
+                ? <Loader/>
+                : <ItemDetail {...item}/>
             }
         </div>
     )
 }
+

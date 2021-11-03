@@ -8,43 +8,40 @@ import { ItemList } from './ItemList'
 export const ItemListContainer = () => {
 
     const [items, setItems] = useState([])
-    const [loading, setLoading] = useState(UIContext)
+    const {loading, setLoading} = useContext(UIContext)
+ 
+    const {categoryId} = useParams()
 
-
-    const { categoryId } = useParams()
-
-    useEffect(() => {
+    useEffect(()=>{
         setLoading(true)
 
         const db = getFirestore()
-        const productos = categoryId
-            ? db.collection('productos').where('category', '==', categoryId)
-            : db.collection('productos')
+        const productos = categoryId 
+                            ? db.collection('productos').where('category', '==', categoryId)
+                            : db.collection('productos')
 
         productos.get()
             .then((response) => {
                 const newItems = response.docs.map((doc) => {
-                    return { id: doc.id, ...doc.data() }
+                    return {id: doc.id, ...doc.data()}
                 })
 
                 setItems(newItems)
             })
-            .catch(err => console.log(err))
+            .catch( err => console.log(err))
             .finally(() => {
-                setLoading(false)
-            }
+                setLoading(false)}
             )
-
+        
     }, [categoryId, setLoading])
 
-    return (
+     return (
         <section className="container my-5">
             {
-                loading
+                loading 
                     ? <Loader/>
-                    : <ItemList productos={items} />
+                    : <ItemList productos={items}/>
             }
-
+            
         </section>
-    )
-}
+    )}

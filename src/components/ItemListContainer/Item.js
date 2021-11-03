@@ -5,9 +5,7 @@ import {Link} from 'react-router-dom'
 
 export const Item = ( {id, name, price, img, description, category} ) => {
 
-    // visualizar props console.log(props)
-
-    return (
+      return (
 
         <Card style={{ width: '18rem' }} className="m-3">
             <Card.Img variant="top" src={img} />
