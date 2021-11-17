@@ -1,5 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import 'firebase/auth'
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -8,14 +10,20 @@ const firebaseConfig = {
   projectId: "ecomercecoder",
   storageBucket: "ecomercecoder.appspot.com",
   messagingSenderId: "233339311871",
-  appId: "1:233339311871:web:1ca48385452a9837e9deca"
+  appId: "1:233339311871:web:1ca48385452a9837e9deca",
+  measurementId: "G-892HLV231T"
 };
 
 const app = firebase.initializeApp(firebaseConfig)
 
+
 export const getFirestore = () => {
     return firebase.firestore(app)
-}
+};
 
-export const db = getFirestore()
+export const getAuth = () => {
+  return firebase.auth(app);
+};
+
+
 

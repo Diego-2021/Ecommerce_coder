@@ -8,27 +8,24 @@ import './NavBar.scss'
 
 export const NavBar = () => {
 
-    const { isAuthenticated, setIsAuthenticated } = useContext(UserAuthContext);
-    const handlesubmit = () => {
-        setIsAuthenticated(false);
-    }
+    const { isAuthenticated, logout } = useContext(UserAuthContext);
+
 
     return (
 
 
         <header className="header">
             <div>
-                <Nav>
+                <Nav >
                     <NavLink activeClassName={'activeLink'} exact to="/">Distrimax</NavLink>
                     <NavLink activeClassName={'activeLink'} exact to="/productos/Sierras">Sierras</NavLink>
                     <NavLink activeClassName={'activeLink'} exact to="/productos/Taladros">Taladros</NavLink>
-                    <NavLink activeClassName={'activeLink'} exact to="/contacto">Contactos</NavLink>
+                    <NavLink activeClassName={'activeLink'} exact to="/contacto">Contacto</NavLink>
                     <Link to="/cart"><CartWidget /></Link>
-                    { !isAuthenticated || <button onClick={handlesubmit} className="btn btn-primary my-2"> Salir</button> }
+                    {!isAuthenticated || <button onClick={logout} className="btn btn-primary "> Salir</button>}
                 </Nav>
-
             </div>
         </header >
-    )
+    );
 
-}
+};
