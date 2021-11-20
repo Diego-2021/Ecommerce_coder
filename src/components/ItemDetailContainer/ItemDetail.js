@@ -7,7 +7,6 @@ import './ItemDetail.scss'
 
 
 
-
 export const ItemDetail = ({ id, name, price, img, description, category, stock }) => {
 
     const { goBack, push } = useHistory()
@@ -21,6 +20,7 @@ export const ItemDetail = ({ id, name, price, img, description, category, stock 
             id,
             name,
             price,
+            img,
             category,
             cantidad
         }
@@ -37,7 +37,7 @@ export const ItemDetail = ({ id, name, price, img, description, category, stock 
 
     return (
         <div className="container">
-            <h2>{name}</h2>
+            <h2> {name}</h2>
             <img src={img} alt={name} />
             <p>{description}</p>
             <h4>Precio: ${price}</h4>

@@ -6,7 +6,7 @@ export const generarOrden =  (datos, carrito, total) => {
 
     return new Promise(async (resolve, reject) => {
 
-        // generar el objeto orden
+        // genera el objeto orden
         const orden = {
             buyer: datos,
             items: carrito.map((el) => ({id: el.id, precio: el.price, cantidad: el.cantidad})),
@@ -15,7 +15,7 @@ export const generarOrden =  (datos, carrito, total) => {
         }
         // enviar la orden a firestore
 
-        // batch de atualizacion
+        // Atualizacion
 
         const db = getFirestore()
         const orders = db.collection('orders')
@@ -50,18 +50,3 @@ export const generarOrden =  (datos, carrito, total) => {
 }
 
 
-
-    // carrito.forEach((item) => {
-    //     const docRef = db.collection('productos').doc(item.id)
-    //     docRef.get() 
-    //         .then((doc) => {
-    //                 if (doc.data().stock >= item.cantidad) {
-    //                     docRef.update({
-    //                         stock: doc.data().stock - item.cantidad
-    //                     })
-    //                 } else {
-    //                     alert("No hay stock de " + doc.data().name)
-    //                 }
-    //             }
-    //         )
-    // })

@@ -1,6 +1,8 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
+import 'firebase/firestore';
+
 
 
 // Your web app's Firebase configuration
@@ -10,20 +12,20 @@ const firebaseConfig = {
   projectId: "ecomercecoder",
   storageBucket: "ecomercecoder.appspot.com",
   messagingSenderId: "233339311871",
-  appId: "1:233339311871:web:1ca48385452a9837e9deca",
-  measurementId: "G-892HLV231T"
+  appId: "1:233339311871:web:1ca48385452a9837e9deca"
 };
 
 const app = firebase.initializeApp(firebaseConfig)
 
 
 export const getFirestore = () => {
-    return firebase.firestore(app)
+  return firebase.firestore(app)
 };
 
 export const getAuth = () => {
   return firebase.auth(app);
 };
+export const provider = new firebase.auth.GoogleAuthProvider();
 
 
 

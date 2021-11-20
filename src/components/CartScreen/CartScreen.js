@@ -21,7 +21,7 @@ export const CartScreen = () => {
                                     <h4>{prod.name}</h4>
                                     <p>Cantidad: {prod.cantidad}</p>
                                     <p>Precio: {prod.price * prod.cantidad}</p>
-                                    <button className="btn btn-danger" onClick={() => removeItem(prod.id)}>
+                                    <button type="button" class="btn btn-success" onClick={() => removeItem(prod.id)}>
                                         <BsFillTrashFill/>
                                     </button>
                                 </div>

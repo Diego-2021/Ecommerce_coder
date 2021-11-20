@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState, } from 'react'
-import { getAuth,  } from '../firebase/config';
+import React, { createContext, useEffect, useState } from 'react'
+import { getAuth, provider } from '../firebase/config';
 
 export const UserAuthContext = createContext();
 
@@ -16,6 +16,14 @@ export const UserAuthProvider = ({ children }) => {
     const logout = () => {
         return auth.signOut();
     };
+
+    const loginGoogle = () =>{
+        return auth.signInWithPopup(provider);
+    };
+
+    const signup = (email, password) =>{
+        return auth.createUserWithEmailAndPassword(email, password)
+    }
 
     useEffect(() => {
         if (currentUser) {
@@ -34,13 +42,15 @@ export const UserAuthProvider = ({ children }) => {
         return () => {
             unsubscribe();
         };
-    }, []);
+    }, [auth]);
 
     const value = {
         isAuthenticated,
         currentUser,
         login,
         logout,
+        signup,
+        loginGoogle,
     };
 
     return (

@@ -1,17 +1,19 @@
 import { useContext, useState } from "react";
 import { UserAuthContext } from "../../context/UserAuthContext";
 import { useHistory } from "react-router";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export const UserAuthenticate = () => {
 
-    const { login } = useContext(UserAuthContext);
+    const { login, loginGoogle } = useContext(UserAuthContext);
     const [values, setValues] = useState({
-        email:'',
-        password:''
+        email: '',
+        password: ''
     });
-    
-  const{ email, password}= values;
-  const {push} = useHistory()
+
+    const { email, password } = values;
+    const { push } = useHistory()
 
 
     const handleChange = (e) => {
@@ -25,18 +27,27 @@ export const UserAuthenticate = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         login(email, password)
-        .then((res)=> push('/'))
-        .catch((err)=> console.log(err))
+            .then((res) => push('/'))
+            .catch((err) => Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: err.message,
+            }));
 
-    }
+    };
+
+    const handleGoogle = e => {
+        e.preventDefault()
+        loginGoogle()
+        push('/');
+    };
 
 
 
 
     return (
-        <div
-            className='container d-flex align-items-center justify-content-space'
-            style={{ minHeight: '80vh' }}
+        <div className='container d-flex align-items-center justify-content-space'
+            style={{ minHeight: '80vh' , color:'white'}}
         >
             <div className='row d-flex align-items-center justify-content-space'>
                 {/* <div className='col'>
@@ -77,10 +88,11 @@ export const UserAuthenticate = () => {
                     <button
                         type='submit'
                         className='btn btn-secondary  font-weight-bold text-uppercase d-block w-100  mt-4'
+                        onClick={handleGoogle}
                     >
                         Login with Google
                     </button>
-                    <small className='text-center mt-3'>No tenes cuenta? Sign up</small>
+                    <small className='text-center mt-3'>No tenes cuenta?<Link to="/signup"> Sign up</Link></small>
                 </div>
             </div>
         </div>

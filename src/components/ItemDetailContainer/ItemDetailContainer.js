@@ -5,12 +5,12 @@ import { getFirestore } from '../../firebase/config'
 import { Loader } from '../Loader/Loader'
 import { ItemDetail } from './ItemDetail'
 
+    
 export const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState(null)
-    
+    const [items, setItems] = useState(null)
     const {loading, setLoading} = useContext(UIContext)
-
+ 
     const {itemId} = useParams()
 
     useEffect(()=>{
@@ -22,7 +22,7 @@ export const ItemDetailContainer = () => {
 
         item.get()
             .then((doc) => {
-                setItem({
+                setItems({
                     id: doc.id,
                     ...doc.data()
                 })
@@ -36,11 +36,11 @@ export const ItemDetailContainer = () => {
 
     return (
         <div>
-            { loading 
+            {
+                loading 
                 ? <Loader/>
-                : <ItemDetail {...item}/>
+                : <ItemDetail {...items}/>
             }
         </div>
     )
 }
-

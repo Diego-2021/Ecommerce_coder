@@ -3,8 +3,10 @@ import { useContext } from 'react'
 import { Nav } from 'react-bootstrap';
 import { UserAuthContext } from '../../context/UserAuthContext'
 import { CartWidget } from './CartWidget';
-import { Link, NavLink } from 'react-router-dom'
-import './NavBar.scss'
+import { Link, NavLink } from 'react-router-dom';
+import './NavBar.scss';
+import logo from '../../statics/logo192.jpg';
+
 
 export const NavBar = () => {
 
@@ -16,13 +18,13 @@ export const NavBar = () => {
 
         <header className="header">
             <div>
-                <Nav >
-                    <NavLink activeClassName={'activeLink'} exact to="/">Distrimax</NavLink>
+                <Nav ><img src={logo} alt="logo Distrimax"></img>
+                    <NavLink activeClassName={'activeLink'} exact to="/">Home</NavLink>
                     <NavLink activeClassName={'activeLink'} exact to="/productos/Sierras">Sierras</NavLink>
                     <NavLink activeClassName={'activeLink'} exact to="/productos/Taladros">Taladros</NavLink>
                     <NavLink activeClassName={'activeLink'} exact to="/contacto">Contacto</NavLink>
                     <Link to="/cart"><CartWidget /></Link>
-                    {!isAuthenticated || <button onClick={logout} className="btn btn-primary "> Salir</button>}
+                    {!isAuthenticated || <button onClick={logout} className="btn btn-primary">Salir</button>}
                 </Nav>
             </div>
         </header >

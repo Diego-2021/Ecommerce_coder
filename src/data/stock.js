@@ -1,11 +1,11 @@
 
-export const stock = [
+/*export const stock = [
     {
         id: 1,
         name: "Sierra ingletadora",
         description: "Lorem ipsum",
         price: 8500,
-        img: 'https://firebasestorage.googleapis.com/v0/b/ecomercecoder.appspot.com/o/sierra_madera_grande.jpg?alt=media&token=0af8fb23-75c6-420d-8d3d-3a8da5299205',
+        img: "",
         category: 'Sierras',
         stock: 30
 
@@ -15,7 +15,7 @@ export const stock = [
         name: "Taladro",
         description: "Lorem ipsum",
         price: 2500,
-        img: "https://firebasestorage.googleapis.com/v0/b/ecomercecoder.appspot.com/o/sierra_ingletadora.jpg?alt=media&token=fa5d368d-2a69-46ff-b1e8-84323753c6efebasestorage.googleapis.com/v0/b/ecomercecoder.appspot.com/o/taladro.jpg?alt=media&token=c7332130-2988-4aee-a6f4-9468bc25691f",
+        img: "https://via.placeholder.com/220",
         category: 'Taladros',
         stock: 80
     },
@@ -38,4 +38,4 @@ export const stock = [
         category: 'Taladros',
         stock: 100
     }
-]
+];*/
