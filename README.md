@@ -1,6 +1,8 @@
 # Proyecto E-Commerce en React 
 
 Este proyecto simula un ecommerce de una tienda de herramientas. 
+Se puede abrir el proyecto en el siguiente enlace
+https://appecommercereact.herokuapp.com/
 
 ## Inicie con npm install y luego npm start
 
